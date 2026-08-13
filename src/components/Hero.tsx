@@ -1,8 +1,10 @@
+import { NumberTicker } from "@/components/ui/number-ticker";
+
 export default function Hero() {
   return (
     <header className="site-header" id="top">
       <div className="hero container">
-        <div className="hero-badge">IT Company · Biratnagar, Nepal</div>
+        <div className="hero-badge">Code · Design · Deploy</div>
         <h1 className="hero-title">
           Building software that moves businesses forward.
         </h1>
@@ -19,22 +21,31 @@ export default function Hero() {
             Get in touch
           </a>
         </div>
-        <div className="hero-stats">
+
+        <div className="hero-stats border-1 p-2 rounded-2xl border-[rgb(36,51,82)]">
           <div className="stat">
-            <span className="stat-num">6+</span>
+            <span className="stat-num">
+              <NumberTicker className="stat-num" value={6} />+
+            </span>
             <span className="stat-label">Projects delivered</span>
           </div>
           <div className="stat">
-            <span className="stat-num">4</span>
+            <span className="stat-num">
+              <NumberTicker className="stat-num" value={4} />
+            </span>
             <span className="stat-label">Team members</span>
           </div>
           <div className="stat">
-            <span className="stat-num">3</span>
+            <span className="stat-num">
+              <NumberTicker className="stat-num" value={6} />
+            </span>
             <span className="stat-label">Service areas</span>
           </div>
           <div className="stat">
-            <span className="stat-num">£300K+</span>
-            <span className="stat-label">Prize pools powered</span>
+            <span className="stat-num">
+              <NumberTicker className="stat-num" value={100} />%
+            </span>
+            <span className="stat-label">Client satisfaction</span>
           </div>
         </div>
       </div>

@@ -15,7 +15,7 @@ export default function About() {
             </p>
             <p>
               Our small, dedicated team covers project management, frontend and
-              UI/UX, backend and database engineering, and quality assurance —
+              UI/UX, backend and database engineering, and quality assurance
               so every project is handled end-to-end under one roof.
             </p>
             <div className="about-tags">

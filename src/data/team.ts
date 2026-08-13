@@ -1,43 +1,25 @@
-export type TeamMember = {
-  name: string;
-  role: string;
-  detail: string;
-  initials: string;
-  c1: string;
-  c2: string;
-};
-
-export const team: TeamMember[] = [
+export const team = [
   {
     name: "Suman Kumar Sardar",
     role: "Project Manager",
-    detail: "Scope, timeline, and meeting notes coordination",
-    initials: "SK",
-    c1: "#0ea5e9",
-    c2: "#0369a1",
+    image:
+      "/assets/images/suman-kumar-sardar.jpg",
   },
   {
     name: "Awnish Mehta",
-    role: "Frontend & UI/UX",
-    detail: "Screens and NativeWind styling",
-    initials: "AM",
-    c1: "#10b981",
-    c2: "#047857",
+    role: "Full-Stack Developer & UI/UX Designer",
+    image: "/assets/images/awnish-mehta.png",
   },
   {
     name: "Bishnu Prasad Pokhrel",
-    role: "QA Engineer · Marketing · Sales",
-    detail: "Testing and bug tracking",
-    initials: "BP",
-    c1: "#f59e0b",
-    c2: "#b45309",
+    role: "Marketing & Business Development",
+    image:
+      "/assets/images/bishnu-prasad-pokhrel.jpg",
   },
   {
     name: "Shivanjay Prasai",
-    role: "Backend Developer",
-    detail: "GraphQL, Prisma, and database",
-    initials: "SP",
-    c1: "#8b5cf6",
-    c2: "#6d28d9",
+    role: "QA Engineer",
+    image:
+      "/assets/images/shivanjay-prasai.jpg",
   },
 ];

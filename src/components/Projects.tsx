@@ -1,8 +1,10 @@
 import { projects } from "@/data/projects";
 
+const bentoSlots = ["proj-a", "proj-b", "proj-c", "proj-d", "proj-e", "proj-f"];
+
 export default function Projects() {
   return (
-    <section id="projects" className="section section-alt">
+    <section id="projects" className="section">
       <div className="container">
         <div className="section-head">
           <span className="eyebrow">Our work</span>
@@ -12,15 +14,22 @@ export default function Projects() {
             built by our team.
           </p>
         </div>
-        <div className="project-grid">
-          {projects.map((project) => (
-            <article className="project-card" key={project.title}>
-              <div className="project-image">
-                <img src={project.image} alt={project.title} loading="lazy" />
-                <span className="project-tag">{project.tag}</span>
-              </div>
+        <div className="project-bento">
+          {projects.map((project, i) => (
+            <article
+              className={`project-card ${bentoSlots[i] ?? ""}`}
+              key={project.title}
+            >
+              <img
+                src={project.image}
+                alt={project.title}
+                loading="lazy"
+                className="project-bg"
+              />
+              <div className="project-overlay" />
               <div className="project-body">
-                <h3>{project.title}</h3>
+                <span className="project-tag hero-badge">{project.tag}</span>
+                <h4>{project.title}</h4>
                 <p>{project.desc}</p>
               </div>
             </article>
