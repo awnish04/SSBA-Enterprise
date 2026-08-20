@@ -7,6 +7,8 @@ export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("#about");
   const navRef = useRef<HTMLDivElement>(null);
+  const linksRef = useRef<HTMLUListElement>(null);
+  const [indicator, setIndicator] = useState({ left: 0, width: 0, opacity: 0 });
 
   useEffect(() => {
     const setNavHeight = () => {
@@ -44,6 +46,25 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const updateIndicator = () => {
+      if (!linksRef.current) return;
+      const activeLink = linksRef.current.querySelector<HTMLAnchorElement>(
+        `a[href="${activeSection}"]`,
+      );
+      if (activeLink) {
+        setIndicator({
+          left: activeLink.offsetLeft,
+          width: activeLink.offsetWidth,
+          opacity: 1,
+        });
+      }
+    };
+    updateIndicator();
+    window.addEventListener("resize", updateIndicator);
+    return () => window.removeEventListener("resize", updateIndicator);
+  }, [activeSection, isOpen]);
+
   return (
     <div ref={navRef} className="nav-wrapper">
       <nav className="nav container">
@@ -61,7 +82,15 @@ export default function Nav() {
           <span />
           <span />
         </button>
-        <ul className={`nav-links ${isOpen ? "open" : ""}`}>
+        <ul ref={linksRef} className={`nav-links ${isOpen ? "open" : ""}`}>
+          <span
+            className="nav-indicator"
+            style={{
+              transform: `translateX(${indicator.left}px)`,
+              width: indicator.width,
+              opacity: indicator.opacity,
+            }}
+          />
           {navItems.map((item) => (
             <li key={item.label}>
               <a

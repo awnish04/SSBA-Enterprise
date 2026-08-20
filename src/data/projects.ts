@@ -3,6 +3,7 @@ export type Project = {
   tag: string;
   desc: string;
   image: string;
+  upcoming?: boolean;
 };
 
 export const projects: Project[] = [
@@ -28,11 +29,12 @@ export const projects: Project[] = [
       "https://images.pexels.com/photos/9072293/pexels-photo-9072293.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
   },
   {
-    title: "National Gaming Championship 2025",
-    tag: "Event Platform",
-    desc: "Ten cities. Three days each. One ultimate champion. A full tournament platform with registration, bracket automation, and over £300,000 in prizes across multiple categories.",
+    title: "WareWise XR",
+    tag: "Warehouse XR Platform",
+    desc: "An extended-reality (AR/VR) system for warehouse operations guided picking, inventory visualization, and staff training through immersive interfaces.",
     image:
-      "https://images.pexels.com/photos/9072394/pexels-photo-9072394.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "https://www.crown.com/content/dam/crown/images/blog/en-us/Blog--VR-blog-with-11-steps.jpg",
+    upcoming: true,
   },
   {
     title: "Car Rental App",

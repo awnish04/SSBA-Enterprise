@@ -28,7 +28,9 @@ export default function Projects() {
               />
               <div className="project-overlay" />
               <div className="project-body">
-                <span className="project-tag hero-badge">{project.tag}</span>
+                <span className="project-tag hero-badge">
+                  {project.tag} {project.upcoming ? " · Upcoming" : ""}
+                </span>
                 <h4>{project.title}</h4>
                 <p>{project.desc}</p>
               </div>

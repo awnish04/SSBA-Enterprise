@@ -8,7 +8,7 @@ export const team = [
   {
     name: "Awnish Mehta",
     role: "Full-Stack Developer & UI/UX Designer",
-    image: "/assets/images/awnish-mehta.png",
+    image: "/assets/images/awnish-mehta.jpg",
   },
   {
     name: "Bishnu Prasad Pokhrel",
