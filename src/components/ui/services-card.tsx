@@ -222,7 +222,7 @@ export interface Service {
   title: string;
   description: string;
   icon: React.ElementType;
-  gradient: string;
+  image: string;
 }
 
 const ServiceCard = ({
@@ -233,33 +233,30 @@ const ServiceCard = ({
   index: number;
 }) => {
   const cardVariants = {
-    hidden: {
-      opacity: 0,
-      y: 50,
-    },
+    hidden: { opacity: 0, y: 50 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.5,
-        delay: index * 0.1,
-      },
+      transition: { duration: 0.5, delay: index * 0.1 },
     },
   };
 
   return (
     <motion.div
       variants={cardVariants}
-      className={cn(
-        "relative flex h-[380px] w-full flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br p-8",
-        service.gradient,
-      )}
+      className="relative flex h-[380px] w-full flex-col justify-between overflow-hidden rounded-3xl border border-white/10 p-8"
     >
+      <img
+        src={service.image}
+        alt={service.title}
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/10" />
+
       <div className="z-10 flex flex-col items-start text-left">
-        <span className="mb-8 font-mono text-sm text-white/40">
+        <span className="mb-8 font-mono text-sm text-white/50">
           ( {service.number} )
         </span>
-
         <service.icon className="mb-auto h-10 w-10 text-white" />
       </div>
 
@@ -267,11 +264,8 @@ const ServiceCard = ({
         <h3 className="mb-2 text-lg font-semibold uppercase tracking-wider text-white">
           {service.title}
         </h3>
-
         <p className="text-sm text-white/70">{service.description}</p>
       </div>
-
-      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
     </motion.div>
   );
 };

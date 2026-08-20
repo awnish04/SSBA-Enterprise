@@ -51,7 +51,6 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: var(--nav-h);
 }
 
 body {
@@ -122,7 +121,7 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0px 0;
+  padding: 0px 20px;
 }
 
 .brand {
@@ -307,7 +306,7 @@ a:hover {
   gap: 4px;
 }
 .stat-num {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 800;
   color: #fff;
   letter-spacing: -0.03em;
@@ -518,220 +517,256 @@ a:hover {
   }
 }
 
-/* ===== Team ===== */
-.team-showcase {
-  display: flex;
-  gap: 10rem;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-}
+/* =========================================================
+   TEAM
+   ========================================================= */
 
 .team-photo-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 200px);
-  grid-template-rows: 250px 200px;
-  gap: 14px;
   justify-content: center;
   align-content: center;
-  flex: 0 0 auto;
 }
+/* ---------------------------------------------------------
+   Bento positions
+   --------------------------------------------------------- */
 
-/* Top-left — large */
-.mem-a {
-  grid-area: 1 / 1 / 2 / 3;
-}
-
-/* Top-right — small */
-.mem-b {
-  grid-area: 1 / 3 / 2 / 4;
-}
-
-/* Bottom-left — small */
-.mem-c {
-  grid-area: 2 / 1 / 3 / 2;
-}
-
-/* Bottom-right — large */
-.mem-d {
-  grid-area: 2 / 2 / 3 / 4;
-}
+/* ---------------------------------------------------------
+   Photo card
+   --------------------------------------------------------- */
 
 .team-photo {
-  border-radius: var(--radius-sm);
+  position: relative;
+
+  min-width: 0;
+  min-height: 0;
+
   overflow: hidden;
+
+  border-radius: var(--radius-sm);
+
   cursor: pointer;
-  opacity: 0.75;
+
+  opacity: 0.78;
+
+  isolation: isolate;
+
   transition:
     opacity 0.6s ease,
-    filter 0.6s ease,
     transform 0.6s ease,
     box-shadow 0.6s ease;
 }
 
+/* Image */
+
 .team-photo img {
+  display: block;
+
   width: 100%;
   height: 100%;
+
   object-fit: cover;
-  filter: grayscale(1) brightness(0.8);
-  transition: filter 0.6s ease;
+
+  filter: grayscale(1) brightness(0.78);
+
+  transition:
+    filter 0.6s ease,
+    transform 0.8s ease;
 }
 
-.team-photo.is-active {
-  opacity: 1;
-  transform: scale(1.03);
-  box-shadow: var(--shadow);
-}
+/* Slight image movement on active */
 
 .team-photo.is-active img {
+  transform: scale(1.03);
+
   filter: grayscale(0) brightness(1);
 }
 
-.team-photo.is-dim {
-  opacity: 0.45;
+/* ---------------------------------------------------------
+   Overlay
+   --------------------------------------------------------- */
+
+.team-photo-overlay {
+  position: absolute;
+  inset: 0;
+
+  z-index: 1;
+
+  pointer-events: none;
+
+  background: linear-gradient(
+    180deg,
+    rgba(11, 18, 32, 0) 35%,
+    rgba(11, 18, 32, 0.25) 55%,
+    rgba(11, 18, 32, 0.92) 100%
+  );
 }
 
-.team-name-list {
-  flex: 1 1 320px;
-  max-width: 420px;
-  display: flex;
-  flex-direction: column;
-  gap: 26px;
-}
-.team-name-row {
-  cursor: pointer;
-  text-align: left;
-  opacity: 0.85;
-  transition:
-    opacity 0.5s ease,
-    transform 0.4s ease;
-}
-.team-name-row.is-active {
+/* ---------------------------------------------------------
+   Active / dim states
+   --------------------------------------------------------- */
+
+.team-photo.is-active {
+  z-index: 2;
+
   opacity: 1;
-  transform: translateX(6px);
+
+  transform: scale(1.025);
+
+  box-shadow: var(--shadow);
 }
-.team-name-row.is-dim {
-  opacity: 0.45;
+
+.team-photo.is-dim {
+  opacity: 0.4;
 }
+
+/* ---------------------------------------------------------
+   Information inside card
+   --------------------------------------------------------- */
+
+.team-photo-info {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  z-index: 2;
+
+  padding: clamp(10px, 1.8vw, 18px);
+}
+
+/* Name row */
+
 .team-name-main {
   display: flex;
+
   align-items: center;
-  justify-content: flex-start;
-  gap: 12px;
+
+  gap: clamp(7px, 1vw, 12px);
+
+  min-width: 0;
 }
-.team-name-dot {
-  width: 20px;
-  height: 10px;
-  border-radius: 3px;
-  flex-shrink: 0;
-  background: var(--border-strong);
-  transform-origin: right center;
-  transition:
-    background 0.4s ease,
-    transform 0.4s ease;
-}
-.team-name-row.is-active .team-name-dot {
-  background: #fff;
-  transform: scaleX(1.6);
-}
-.team-name-row h3 {
-  font-size: 1.05rem;
-  font-weight: 500;
-  color: var(--text-muted);
+
+/* Name */
+
+.team-photo-info h3 {
+  min-width: 0;
+
   margin: 0;
-  transition:
-    color 0.4s ease,
-    font-weight 0.4s ease;
-}
-.team-name-row.is-active h3 {
-  font-weight: 700;
+
+  overflow: hidden;
+
   color: #fff;
+
+  font-size: clamp(0.72rem, 1.15vw, 1rem);
+
+  font-weight: 600;
+
+  line-height: 1.2;
+
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
 }
+
+/* ---------------------------------------------------------
+   LinkedIn
+   --------------------------------------------------------- */
+
 .team-linkedin {
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
-  border-radius: 6px;
-  color: var(--text-dim);
+
+  flex: 0 0 auto;
+
+  width: clamp(20px, 2vw, 24px);
+  height: clamp(20px, 2vw, 24px);
+
+  margin-left: auto;
+
+  border-radius: 5px;
+
+  color: rgba(255, 255, 255, 0.55);
+
   opacity: 0;
-  transform: translateX(-6px);
+
+  transform: translateX(-5px);
+
   pointer-events: none;
+
   transition:
-    opacity 0.4s ease,
-    transform 0.4s ease,
+    opacity 0.35s ease,
+    transform 0.35s ease,
     color 0.3s ease,
     background 0.3s ease;
 }
-.team-name-row.is-active .team-linkedin {
+
+/* Show LinkedIn on active card */
+
+.team-photo.is-active .team-linkedin {
   opacity: 1;
+
   transform: translateX(0);
+
   pointer-events: auto;
 }
+
 .team-linkedin:hover {
   color: #fff;
-  background: var(--surface-2);
-}
-.team-name-row .role-detail {
-  color: var(--text-dim);
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin: 4px 0 0 34px;
-  transition: color 0.4s ease;
-}
-.team-name-row.is-active .role-detail {
-  color: var(--text-muted);
+
+  background: rgba(255, 255, 255, 0.12);
 }
 
-@media (max-width: 700px) {
-  .team-showcase {
-    flex-direction: column;
-  }
-  .team-name-row {
-    text-align: center;
-  }
-  .team-name-main {
-    justify-content: center;
+/* ---------------------------------------------------------
+   Role
+   --------------------------------------------------------- */
+
+.team-photo-info .role-detail {
+  /* margin: 0 0 0 clamp(2px, 2.5vw, 32px); */
+
+  color: rgba(255, 255, 255, 0.62);
+
+  font-size: clamp(0.55rem, 0.75vw, 0.72rem);
+
+  line-height: 1.35;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.08em;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+/* =========================================================
+   TOUCH DEVICES
+   ========================================================= */
+
+/*
+   Hover isn't reliable on phones/tablets.
+   The React active state still works when the card
+   receives interaction, while hover effects are only
+   enhanced on devices that actually support hover.
+*/
+
+@media (hover: hover) and (pointer: fine) {
+  .team-photo:hover {
+    opacity: 1;
   }
 }
 
 /* ===== Services ===== */
-.service-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
-}
-.service-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 28px 24px;
-  transition:
-    transform 0.2s,
-    border-color 0.2s,
-    box-shadow 0.2s;
-}
+
 .service-card:hover {
   transform: translateY(-4px);
   border-color: var(--border-strong);
   box-shadow: var(--shadow);
 }
-.service-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
-  font-size: 0.9rem;
-  letter-spacing: 0.02em;
-  color: #fff;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  margin-bottom: 18px;
-}
+
 .service-card h3 {
   font-size: 1.08rem;
   color: #fff;
@@ -792,17 +827,17 @@ a:hover {
 
 /* ===== Footer ===== */
 .site-footer {
-  background: #080d18;
+  background: var(--bg);
   border-top: 1px solid var(--border);
-  padding: 40px 0;
+  padding: 20px 0;
 }
 .footer-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
+  padding: 0px 0;
 }
+
 .footer-brand {
   display: flex;
   align-items: center;

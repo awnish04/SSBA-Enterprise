@@ -3,8 +3,11 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="container footer-inner">
         <div className="footer-brand">
-          <span className="brand-mark">SSBA</span>
-          <span>SSBA Enterprise Pvt. Ltd.</span>
+          <img
+            src="/assets/images/SSBA-Logo-Footer.png"
+            alt="SSBA Enterprise Logo"
+            className="w-20"
+          />
         </div>
         <p className="footer-note">
           IT Company · Biratnagar, Nepal · © 2026 SSBA Enterprise

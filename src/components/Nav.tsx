@@ -72,7 +72,7 @@ export default function Nav() {
           <img
             src="/assets/images/SSBA-Logo.png"
             alt="SSBA Enterprise"
-            className="brand-logo w-20"
+            className="brand-logo w-14 lg:w-20"
           />
         </a>
         <button
