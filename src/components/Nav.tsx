@@ -69,8 +69,11 @@ export default function Nav() {
     <div ref={navRef} className="nav-wrapper">
       <nav className="nav container">
         <a href="#top" className="brand">
-          <span className="brand-mark">SSBA</span>
-          <span className="brand-name">Enterprise</span>
+          <img
+            src="/assets/images/SSBA-Logo.png"
+            alt="SSBA Enterprise"
+            className="brand-logo w-20"
+          />
         </a>
         <button
           className={`nav-toggle ${isOpen ? "active" : ""}`}
