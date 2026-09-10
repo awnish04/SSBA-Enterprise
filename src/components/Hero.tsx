@@ -37,7 +37,7 @@ export default function Hero() {
           </div>
           <div className="stat">
             <span className="stat-num">
-              <NumberTicker className="stat-num" value={6} />
+              <NumberTicker className="stat-num" value={5} />
             </span>
             <span className="stat-label">Service areas</span>
           </div>
