@@ -7,18 +7,18 @@ export const team = [
   },
   {
     name: "Awnish Mehta",
-    role: "Full-Stack Developer & UI/UX Designer",
+    role: "Frontend and Development Lead",
     image: "/assets/images/awnish-mehta.jpg",
   },
   {
     name: "Bishnu Prasad Pokhrel",
-    role: "Marketing & Business Development",
+    role: "Marketing Sales & Business Development Lead",
     image:
       "/assets/images/bishnu-prasad-pokhrel.jpg",
   },
   {
     name: "Shivanjay Prasai",
-    role: "QA Engineer",
+    role: "Backend & QA Engineer",
     image:
       "/assets/images/shivanjay-prasai.jpg",
   },
