@@ -2,8 +2,7 @@ export const team = [
   {
     name: "Suman Kumar Sardar",
     role: "Project Manager",
-    image:
-      "/assets/images/suman-kumar-sardar.jpg",
+    image: "/assets/images/suman-kumar-sardar.jpg",
   },
   {
     name: "Awnish Mehta",
@@ -13,13 +12,11 @@ export const team = [
   {
     name: "Bishnu Prasad Pokhrel",
     role: "Marketing Sales & Business Development Lead",
-    image:
-      "/assets/images/bishnu-prasad-pokhrel.jpg",
+    image: "/assets/images/bishnu-prasad-pokhrel.jpg",
   },
   {
     name: "Shivanjay Prasai",
     role: "Backend & QA Engineer",
-    image:
-      "/assets/images/shivanjay-prasai.jpg",
+    image: "/assets/images/shivanjay-prasai.jpeg",
   },
 ];
