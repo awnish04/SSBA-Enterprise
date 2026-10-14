@@ -1,5 +1,5 @@
 export default function Contact() {
-  const email = "suman.ssba@gmail.com";
+  const email = "btit24.sks@ismt.edu.np";
   const subject = encodeURIComponent("Project enquiry – SSBA Enterprise");
 
   return (
