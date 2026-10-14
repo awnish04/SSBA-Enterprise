@@ -5,18 +5,26 @@ export default function About() {
         <div className="about-grid">
           <div className="about-text">
             <span className="eyebrow">About SSBA Enterprise</span>
-            <h2>A focused team delivering real-world software.</h2>
+            <h2>A focused team building practical software.</h2>
+
+            {/* Mission pull-quote */}
+            <blockquote className="about-mission">
+              &ldquo;To build practical software and prototypes by coordinating
+              project management, design, development and quality assurance
+              within one focused team.&rdquo;
+            </blockquote>
+
             <p>
-              Based in Biratnagar, Nepal, SSBA Enterprise Pvt. Ltd. is an IT
-              company building web-based platforms, mobile applications, and IoT
-              solutions. From community event management to LPG distribution
-              monitoring and large-scale esports leagues, we turn ideas into
-              shipped products.
+              Based in Biratnagar, Nepal, SSBA Enterprise is an IT company
+              building web-based platforms, mobile applications and IoT
+              solutions. Our portfolio spans community event management, LPG
+              distribution monitoring, esports leagues and more — a range of
+              projects and prototypes developed by a small, dedicated team.
             </p>
             <p>
-              Our small, dedicated team covers project management, frontend and
-              UI/UX, backend and database engineering, and quality assurance so
-              every project is handled end-to-end under one roof.
+              Our team covers project management, frontend and UI/UX, backend
+              and database engineering, and quality assurance so every project
+              is handled end-to-end under one roof.
             </p>
             <div className="about-tags">
               <span className="tag">Web Platforms</span>
@@ -30,7 +38,7 @@ export default function About() {
           <div className="about-image">
             <img
               src="https://images.pexels.com/photos/6804068/pexels-photo-6804068.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-              alt="Development team working together in a modern office"
+              alt="Development team collaborating on software projects in a modern office"
               loading="lazy"
             />
           </div>

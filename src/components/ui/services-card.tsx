@@ -217,6 +217,33 @@ const CarouselNext = React.forwardRef<
 
 CarouselNext.displayName = "CarouselNext";
 
+const CarouselPrev = React.forwardRef<
+  HTMLButtonElement,
+  React.ComponentProps<typeof Button>
+>(({ className, variant = "outline", size = "icon", ...props }, ref) => {
+  const { scrollPrev, canScrollPrev } = useCarousel();
+
+  return (
+    <Button
+      ref={ref}
+      variant={variant}
+      size={size}
+      className={cn(
+        "absolute left-2 top-1/2 h-10 w-10 -translate-y-1/2 rounded-full",
+        className,
+      )}
+      onClick={scrollPrev}
+      disabled={!canScrollPrev}
+      {...props}
+    >
+      <span aria-hidden="true">&#8592;</span>
+      <span className="sr-only">Previous slide</span>
+    </Button>
+  );
+});
+
+CarouselPrev.displayName = "CarouselPrev";
+
 export interface Service {
   number: string;
   title: string;
@@ -248,8 +275,9 @@ const ServiceCard = ({
     >
       <img
         src={service.image}
-        alt={service.title}
+        alt={`${service.title} service illustration`}
         className="absolute inset-0 h-full w-full object-cover"
+        loading="lazy"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/10" />
 
@@ -257,7 +285,7 @@ const ServiceCard = ({
         <span className="mb-8 font-mono text-sm text-white/50">
           ( {service.number} )
         </span>
-        <service.icon className="mb-auto h-10 w-10 text-white" />
+        <service.icon className="mb-auto h-10 w-10 text-white" aria-hidden="true" />
       </div>
 
       <div className="z-10">
@@ -298,6 +326,7 @@ export const ServiceCarousel = ({ services }: { services: Service[] }) => {
         }}
         plugins={[autoplayPlugin]}
         className="relative"
+        aria-label="Our services carousel — use arrow keys to navigate"
       >
         <motion.div
           initial="hidden"
@@ -315,6 +344,7 @@ export const ServiceCarousel = ({ services }: { services: Service[] }) => {
           </CarouselContent>
         </motion.div>
 
+        <CarouselPrev className="border-0 bg-white/10 text-white hover:bg-white/20" />
         <CarouselNext className="border-0 bg-white/10 text-white hover:bg-white/20" />
       </Carousel>
     </div>

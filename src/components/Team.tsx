@@ -52,11 +52,12 @@ export default function Team() {
             >
               <img
                 src={member.image}
-                alt={member.name}
+                alt={member.alt}
                 className={`
     w-full
     h-full
     object-cover
+    aspect-[4/3]
     ${
       index === 0
         ? "object-[center_15%]"

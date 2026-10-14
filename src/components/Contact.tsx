@@ -1,4 +1,7 @@
 export default function Contact() {
+  const email = "suman.ssba@gmail.com";
+  const subject = encodeURIComponent("Project enquiry – SSBA Enterprise");
+
   return (
     <section id="contact" className="section">
       <div className="container">
@@ -16,16 +19,21 @@ export default function Contact() {
             </div>
             <div className="contact-item">
               <span className="contact-label">Company</span>
-              <span className="contact-value">SSBA Enterprise Pvt. Ltd.</span>
+              <span className="contact-value">SSBA Enterprise</span>
             </div>
             <div className="contact-item">
-              <span className="contact-label">Services</span>
-              <span className="contact-value">Web · Mobile · IoT</span>
+              <span className="contact-label">Email</span>
+              <a
+                href={`mailto:${email}?subject=${subject}`}
+                className="contact-value contact-email-link"
+              >
+                {email}
+              </a>
             </div>
           </div>
 
           <a
-            href="mailto:hello@ssbaenterprise.com"
+            href={`mailto:${email}?subject=${subject}`}
             className="btn btn-primary contact-btn"
           >
             Start a conversation
